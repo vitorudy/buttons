@@ -1,0 +1,109 @@
+/* CSS declarations go here */
+@box:border-box;
+@font:"Roboto Condensed";
+@border: #3b3b3b;
+@color: blue;
+@size:1em;
+
+body {
+  margin:auto;
+  text-align:center;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family:@font;
+}
+
+
+
+/************************** Simple button ***************************/
+
+[btn-rect] {
+outline:none;
+background:none;
+text-decoration:none;
+box-sizing:@box;
+font-family: @font;
+margin:0;
+padding:.6em;
+width:auto;
+border:1px solid @border;
+overflow:visible;
+cursor:pointer;
+
+font-size:@size;
+}
+
+    [btn-rect=~"colored"]{
+    background:@color;
+    border:none;
+    color:white;
+    }
+
+[btn-rect-glow] {
+outline:none;
+background:none;
+text-decoration:none;
+box-sizing:@box;
+font-family: @font;
+margin:0;
+padding:.6em;
+width:auto;
+border:1px solid @border;
+overflow:visible;
+cursor:pointer;
+
+box-shadow: 0 0 4px rgba(0,0,0,0.5);
+text-shadow: 0.5px 0.5px 0 rgba(255,255,255,0.5);
+
+font-size:@size;
+}
+
+    [btn-rect-glow=~"colored"]{
+    background:@color;
+    border:none;
+    color:white;
+    }
+
+/************************** Border radius button ***************************/
+
+[btn-radius] {
+border:1px solid @border;
+background:none;
+text-decoration:none;
+box-sizing:@box;
+font-family: @font;
+border-radius: 5px;
+padding:.6em;
+cursor:pointer;
+
+font-size:@size;
+}
+
+    [btn-radius=~"colored"]{
+    background:@color;
+    border:none;
+    color:white;
+    }
+
+/************************** Round button ***************************/
+
+
+[btn-round] {
+border:1px solid @border;
+text-decoration:none;
+background:none;
+box-sizing:@box;
+font-family: @font;
+border-radius: 50px;
+padding:.6em;
+cursor:pointer;
+
+font-size:@size;
+}
+
+    [btn-round=~"colored"]{
+    background:@color;
+    border:none;
+    color:white;
+    }
