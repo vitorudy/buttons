@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 @box:border-box;
 @font:"Roboto Condensed";
-@border: #3b3b3b;
+@border: #666666;
 @color: blue;
 @size:1em;
 
@@ -68,6 +68,7 @@ font-size:@size;
 /************************** Border radius button ***************************/
 
 [btn-radius] {
+outline:none;
 border:1px solid @border;
 background:none;
 text-decoration:none;
@@ -86,10 +87,35 @@ font-size:@size;
     color:white;
     }
 
+[btn-radius-glow] {
+outline:none;
+border:1px solid @border;
+background:none;
+text-decoration:none;
+box-sizing:@box;
+font-family: @font;
+border-radius: 5px;
+padding:.6em;
+cursor:pointer;
+
+
+box-shadow: 0 0 4px rgba(0,0,0,0.5);
+text-shadow: 0.5px 0.5px 0 rgba(255,255,255,0.5);
+
+font-size:@size;
+}
+
+    [btn-radius-glow=~"colored"]{
+    background:@color;
+    border:none;
+    color:white;
+    }
+
 /************************** Round button ***************************/
 
 
 [btn-round] {
+outline:none;
 border:1px solid @border;
 text-decoration:none;
 background:none;
@@ -107,3 +133,115 @@ font-size:@size;
     border:none;
     color:white;
     }
+
+[btn-round-glow] {
+outline:none;
+border:1px solid @border;
+text-decoration:none;
+background:none;
+box-sizing:@box;
+font-family: @font;
+border-radius: 50px;
+padding:.6em;
+cursor:pointer;
+
+
+box-shadow: 0 0 4px rgba(0,0,0,0.5);
+text-shadow: 0.5px 0.5px 0 rgba(255,255,255,0.5);
+
+font-size:@size;
+}
+
+    [btn-round-glow=~"colored"]{
+    background:@color;
+    border:none;
+    color:white;
+    }
+
+/********************************* Switch button ******************************/
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+  font-size: 17px;
+  padding: 0 20px;
+  border: none;
+  overflow: visible;
+  width: 51px;
+  height: 32px;
+  z-index: 0;
+  text-align: left;
+}
+.switch__input {
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  padding: 0;
+  border: 0;
+  opacity: 0.001;
+  z-index: 1;
+  vertical-align: top;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 51px;
+  height: 44px;
+  margin-top: -6px;
+  top: 0px;
+  left: 0px;
+  transition: all 0.2s linear;
+}
+.switch__toggle {
+  background-color: #ddd;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 30px;
+  transition-property: all;
+  transition-duration: 0.35s;
+  transition-timing-function: ease-out;
+}
+.switch__toggle:before {
+  box-sizing: border-box;
+  background-clip: padding-box;
+  position: absolute;
+  content: '';
+  border-radius: 28px;
+  height: 28px;
+  width: 28px;
+  background-color: #fff;
+  left: 2px;
+  top: 2px;
+  transition-property: all;
+  transition-duration: 0.35s;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.5, 1);
+}
+.switch__input:checked + .switch__toggle {
+  background-color: #4cd964;
+}
+.switch__input:checked + .switch__toggle:before {
+  transform: translateX(18px);
+}
+.switch__input:not(:checked) + .switch__toggle:before {
+  transform: translateX(0px);
+}
+.switch__input:disabled + .switch__toggle {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
